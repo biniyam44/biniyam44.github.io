@@ -2,7 +2,7 @@
 
 My personal portfolio, covering AI engineering, data science, evaluation, and technical leadership.
 
-Visit [biniyam-berga](https://naphi44.github.io/biniyam-berga/).
+Visit [biniyam-berga](https://biniyam44.github.io/biniyam-berga/).
 
 ## Run locally
 
