@@ -18,6 +18,8 @@ Open `http://127.0.0.1:4173`.
 - `styles.css`: layout and responsive styles.
 - `app.js`: work filters, project details, and navigation.
 - `assets/`: favicon and résumé.
+- `forecasting/`: interactive historical price and hourly appliance-energy studies.
+- `forecasting/data/`: checked forecasts, metrics, and reproducibility records exported from the forecasting repository.
 
 The site uses plain HTML, CSS, and JavaScript. There are no dependencies or build steps. GitHub Pages publishes the root of the `main` branch.
 
@@ -25,7 +27,10 @@ The site uses plain HTML, CSS, and JavaScript. There are no dependencies or buil
 
 ```sh
 node --check app.js
+node --check forecasting/forecasting.js
 git diff --check
 ```
 
 Before publishing an update, check the mobile menu, work filters, project dialogs, and résumé download.
+
+For the forecasting explorer, check both datasets and each forecast horizon. Confirm that energy uses hours and kWh, the model-selection badge follows validation results, and CSV downloads match the selected dataset. Model fitting does not run in the visitor's browser. The recorded results come from [the forecasting source repository](https://github.com/biniyam44/Data-Science-Portfolio-), whose export command checks the source data, evaluation rows, and metrics before copying them here.

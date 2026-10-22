@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18392e">
+  <meta name="description" content="Explore Biniyam Berga's reproducible forecasting projects: historical cryptocurrency prices and hourly appliance energy demand, with chronological evaluation and downloadable results.">
+  <meta property="og:title" content="Forecasting, checked against the future | Biniyam Berga">
+  <meta property="og:description" content="Two forecasting case studies with shared time splits, simple baselines, machine learning models, and inspectable results.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://biniyam44.github.io/forecasting/">
+  <link rel="canonical" href="https://biniyam44.github.io/forecasting/">
+  <title>Forecasting case studies | Biniyam Berga</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="forecasting.css">
+  <script src="forecasting.js" defer></script>
+</head>
+<body class="forecast-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-shell container forecast-nav" aria-label="Main navigation">
+      <a class="wordmark" href="../">Biniyam Berga</a>
+      <a class="forecast-back" href="../#work"><span aria-hidden="true">←</span> Back to selected work</a>
+      <a class="header-cta" href="https://github.com/biniyam44/Data-Science-Portfolio-" target="_blank" rel="noopener noreferrer">View the code <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="forecast-hero container" aria-labelledby="page-title">
+      <div>
+        <p class="section-index">DATA SCIENCE / PERSONAL PROJECTS</p>
+        <h1 id="page-title">Forecasting, checked<br>against <em>the future.</em></h1>
+        <p class="forecast-lead">A price series and household appliance energy use ask different questions. I use the same evaluation rules for both, so a more complicated model has to earn its place.</p>
+        <div class="forecast-hero-links"><a class="button primary" href="#explorer">Explore the results <span aria-hidden="true">↓</span></a><a class="text-link" href="#method">Read the decisions <span aria-hidden="true">↘</span></a></div>
+      </div>
+      <aside class="project-note" aria-label="About these studies">
+        <p class="eyebrow">TWO QUESTIONS, ONE WORKFLOW</p>
+        <h2>Does the extra complexity help?</h2>
+        <p>Compare last-value, drift, and seasonal baselines with ARIMA, Prophet, and gradient-boosted trees. Every model is measured on the same forecast dates.</p>
+        <p class="project-note-foot">Historical experiments using public data. These are not live forecasts, trading signals, or production deployments.</p>
+      </aside>
+    </section>
+
+    <section class="container explorer-section" id="explorer" aria-labelledby="explorer-title">
+      <div class="forecast-section-heading"><div><p class="section-index">01 / RESULTS YOU CAN INSPECT</p><h2 id="explorer-title">Start with the <em>evidence.</em></h2></div><p>Change the dataset, forecast horizon, or model. The selected model is chosen using validation data, never the final test results.</p></div>
+      <div class="explorer-panel">
+        <div class="explorer-controls">
+          <label for="dataset-select">Case study<select id="dataset-select"><option value="crypto">Cryptocurrency prices</option><option value="energy">Appliance energy demand</option></select></label>
+          <label for="horizon-select">Forecast horizon<select id="horizon-select" disabled><option>Loading horizons</option></select></label>
+          <label for="model-select">Model<select id="model-select" disabled><option>Loading models</option></select></label>
+        </div>
+        <p id="data-status" class="data-status" role="status" aria-live="polite">Loading the recorded results.</p>
+        <div id="results" hidden>
+          <div class="dataset-heading"><div><p class="eyebrow" id="dataset-period"></p><h3 id="dataset-title"></h3></div><span class="selection-label" id="selection-label"></span></div>
+          <p class="dataset-description" id="dataset-description"></p>
+          <div class="result-metrics" aria-label="Selected model test metrics">
+            <div><span>Mean absolute error</span><strong id="metric-mae"></strong><small id="metric-unit"></small></div>
+            <div><span>Root mean squared error</span><strong id="metric-rmse"></strong><small>Penalizes larger misses</small></div>
+            <div><span>Interval coverage</span><strong id="metric-coverage"></strong><small id="interval-target"></small></div>
+          </div>
+          <figure class="forecast-figure">
+            <div class="chart-heading"><h4>Held-out observations and forecasts</h4><div class="chart-legend" aria-label="Chart legend"><span><i class="legend-actual"></i>Observed</span><span><i class="legend-prediction"></i>Forecast</span><span><i class="legend-interval"></i>Interval</span></div></div>
+            <div class="chart-scroll" tabindex="0" role="region" aria-label="Forecast chart. Scroll horizontally on small screens."><svg id="forecast-chart" viewBox="0 0 960 360" role="img" aria-labelledby="chart-title chart-description"><title id="chart-title">Held-out forecast comparison</title><desc id="chart-description"></desc></svg></div>
+            <figcaption id="chart-caption"></figcaption>
+          </figure>
+          <section class="comparison" aria-labelledby="comparison-title">
+            <div class="subsection-heading"><h4 id="comparison-title">Every model, the same test period</h4><p>The validation choice is marked. Lower errors are better; interval coverage should be read alongside interval width.</p></div>
+            <div class="table-scroll" tabindex="0" role="region" aria-label="Model comparison. Scroll horizontally on small screens.">
+              <table><caption class="sr-only" id="comparison-caption"></caption><thead><tr><th scope="col">Model</th><th scope="col">MAE</th><th scope="col">RMSE</th><th scope="col">MAPE</th><th scope="col">MASE</th><th scope="col">Coverage</th><th scope="col">Interval width</th><th scope="col">Forecasts</th></tr></thead><tbody id="comparison-body"></tbody></table>
+            </div>
+            <p class="metric-explanation">MAE and RMSE use the target unit. MAPE is a percentage and excludes zero actual values. MASE scales errors against a training-only seasonal naive error. Coverage is the fraction of observations inside the interval, not a guarantee about the next forecast.</p>
+          </section>
+          <details class="error-details"><summary>Where did this model miss most?</summary><p>The five largest absolute errors in this model and horizon, shown for diagnosis rather than model selection.</p><div class="table-scroll" tabindex="0" role="region" aria-label="Largest errors. Scroll horizontally on small screens."><table><thead><tr><th scope="col">Forecast issued</th><th scope="col">Target date</th><th scope="col">Observed</th><th scope="col">Forecast</th><th scope="col">Absolute error</th></tr></thead><tbody id="errors-body"></tbody></table></div></details>
+          <details class="error-details"><summary>Read the plotted values</summary><div class="table-scroll" tabindex="0" role="region" aria-label="All plotted forecast values. Scroll horizontally on small screens."><table><thead><tr><th scope="col">Forecast issued</th><th scope="col">Target date</th><th scope="col">Observed</th><th scope="col">Forecast</th><th scope="col">Lower bound</th><th scope="col">Upper bound</th></tr></thead><tbody id="points-body"></tbody></table></div></details>
+          <div class="data-footnote"><p id="source-credit"></p><p id="test-period"></p><p id="dataset-limitations"></p></div>
+          <div class="download-bar"><span>REPRODUCE OR TAKE A CLOSER LOOK</span><div><a id="download-predictions" download>Forecasts CSV <span aria-hidden="true">↓</span></a><a id="download-metrics" download>Metrics CSV <span aria-hidden="true">↓</span></a><a id="download-summary" download>Run metadata JSON <span aria-hidden="true">↓</span></a></div></div>
+          <details class="metadata-details"><summary>Data fingerprint and run configuration</summary><pre id="run-metadata"></pre></details>
+        </div>
+      </div>
+      <noscript><p class="no-script">The explorer needs JavaScript. The methods below remain available, and the <a href="https://github.com/biniyam44/Data-Science-Portfolio-">source repository</a> contains the reproducible analysis and recorded results.</p></noscript>
+    </section>
+
+    <section class="container methodology" id="method" aria-labelledby="method-title">
+      <div class="forecast-section-heading"><div><p class="section-index">02 / THE DECISIONS BEHIND THE CHART</p><h2 id="method-title">A fair comparison<br>comes <em>first.</em></h2></div><p>The point is not to make the most elaborate forecast. It is to find out which approach is useful, what it misses, and whether the result can be reproduced.</p></div>
+      <div class="decision-list">
+        <article><span class="decision-number">01</span><div><h3>Keep a simple model in the room.</h3><p>A last-value forecast is a serious reference for prices. A seasonal naive forecast is useful when demand repeats. ARIMA, Prophet, and trees need to improve on those references, not just produce a smooth curve.</p></div></article>
+        <article><span class="decision-number">02</span><div><h3>Only use what was available then.</h3><p>Each forecast starts after the latest observation is known. Tree features use historical values, changes, rolling statistics, and, for the price series, historical volume. A same-row currency conversion of the target is not an independent feature.</p></div></article>
+        <article><span class="decision-number">03</span><div><h3>Separate selection from measurement.</h3><p>Validation chooses a model for each horizon. A later calibration period sets the empirical interval width. The final test period measures the frozen choices. During rolling evaluation, earlier test observations can become training history once their dates have passed; future observations never can.</p></div></article>
+        <article><span class="decision-number">04</span><div><h3>Show uncertainty and the bad forecasts.</h3><p>Intervals use errors from the calibration period rather than the test answers. Time series are dependent and can change regime, so nominal coverage is not assured. The explorer shows actual test coverage, interval width, and the largest misses.</p></div></article>
+      </div>
+    </section>
+
+    <section class="container project-context" aria-labelledby="context-title">
+      <div><p class="section-index">03 / TWO DIFFERENT USE CASES</p><h2 id="context-title">The question changes.<br>The checks <em>stay.</em></h2></div>
+      <div class="context-columns"><article><span class="context-label">CRYPTOCURRENCY PRICES</span><h3>Can a model beat carrying the last price forward?</h3><p>This study revisits a historical daily price dataset. It is an exercise in forecast evaluation, not an investable strategy. There are no transaction costs, execution assumptions, or trading returns in these results.</p></article><article><span class="context-label">APPLIANCE ENERGY DEMAND</span><h3>How predictable is a household's hourly appliance use?</h3><p>This study uses public appliance-energy readings to examine short-horizon demand in kWh per hour. Ten-minute readings are aggregated into complete hours before modeling. Appliance consumption is not the household's total electricity load, and one household does not represent a utility or a commercial load portfolio.</p></article></div>
+    </section>
+    <section class="forecast-next container"><div><p class="eyebrow">SOURCE, METHODS, AND RESULTS</p><h2>Follow the whole analysis.</h2><p>The repository contains the data preparation, forecasting code, notebooks, tests, and commands behind this page.</p></div><a class="button primary" href="https://github.com/biniyam44/Data-Science-Portfolio-" target="_blank" rel="noopener noreferrer">Open the repository <span aria-hidden="true">↗</span></a></section>
+    <p class="container data-attribution">Energy data: Luis Candanedo (2017), <a href="https://doi.org/10.24432/C5VC8G">Appliances Energy Prediction, UCI Machine Learning Repository</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Hourly values are derived from complete ten-minute groups. The original price dataset's license has not been independently confirmed.</p>
+  </main>
+  <footer class="site-footer container"><div class="footer-inner"><a class="wordmark" href="../">Biniyam Berga</a><p>Personal research · Historical public data</p><a class="back-top" href="#">Back to top <span aria-hidden="true">↑</span></a></div></footer>
+</body>
+</html>
