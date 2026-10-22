@@ -4,6 +4,8 @@ My personal portfolio, covering AI engineering, data science, evaluation, and te
 
 Visit [Biniyam Berga](https://biniyam44.github.io/).
 
+The main navigation and Data Science Portfolio card link to the [interactive forecasting studies](https://biniyam44.github.io/forecasting/). The card also links directly to the [source repository](https://github.com/biniyam44/Data-Science-Portfolio-).
+
 ## Run locally
 
 ```sh
