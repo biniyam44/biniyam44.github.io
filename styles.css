@@ -45,7 +45,7 @@ button:disabled { cursor: not-allowed; opacity: .6; }
 .wordmark span { color: #71854b; }
 .wordmark small { font: 11px var(--mono); letter-spacing: 0; margin-left: 7px; }
 .nav-links { display: flex; gap: 30px; align-items: center; margin-left: auto; }
-.nav-links a { position: relative; font-size: 13px; font-weight: 500; padding: 8px 0; }
+.nav-links a { position: relative; font-size: 13px; font-weight: 500; padding: 8px 0; white-space: nowrap; }
 .nav-links a::after { position: absolute; right: 0; bottom: 3px; left: 0; height: 1px; background: currentColor; content: ""; transform: scaleX(0); transform-origin: left; transition: transform .18s ease; }
 .nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
 .header-cta { display: inline-flex; align-items: center; justify-content: center; gap: 20px; min-height: 42px; padding: 8px 17px; font-size: 13px; border: 1px solid var(--ink); border-radius: 7px; transition: background .18s ease; }
@@ -349,15 +349,19 @@ button:disabled { cursor: not-allowed; opacity: .6; }
   .contact-section h2 { font-size: 47px; }
 }
 
+@media (max-width: 960px) {
+  .nav-shell:has(.nav-toggle) { min-height: 76px; gap: 15px; flex-wrap: wrap; }
+  .nav-toggle { display: block; margin-left: auto; min-height: 44px; min-width: 44px; }
+  .nav-links { display: none; order: 4; width: 100%; flex-basis: 100%; flex-wrap: wrap; gap: 10px 24px; margin: 0; padding: 0 0 17px; }
+  .nav-links.is-open, .nav-links.open, .nav-links[data-open="true"], .nav-shell:has(.nav-toggle[aria-expanded="true"]) .nav-links { display: flex; }
+}
+
 @media (max-width: 768px) {
   html { scroll-padding-top: 25px; }
   .container { width: calc(100% - 40px); }
   .nav-shell { min-height: 76px; gap: 15px; flex-wrap: wrap; }
   .wordmark { font-size: 20px; }
-  .nav-toggle { display: block; margin-left: auto; min-height: 44px; min-width: 44px; }
   .header-cta { font-size: 11px; min-height: 36px; padding-inline: 12px; gap: 12px; }
-  .nav-links { display: none; order: 4; width: 100%; flex-basis: 100%; flex-wrap: wrap; gap: 10px 24px; margin: 0; padding: 0 0 17px; }
-  .nav-links.is-open, .nav-links.open, .nav-links[data-open="true"], .nav-shell:has(.nav-toggle[aria-expanded="true"]) .nav-links { display: flex; }
   .hero { padding-top: 49px; grid-template-columns: 1fr; gap: 38px; }
   .hero h1 { font-size: clamp(60px, 11vw, 80px); letter-spacing: -3.4px; }
   .hero-description { max-width: 550px; font-size: 15px; margin-top: 22px; }
