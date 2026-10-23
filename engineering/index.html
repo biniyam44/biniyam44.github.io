@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18392e">
+  <meta name="description" content="Biniyam Berga's forecasting API, model monitoring, and evidence-grounded research assistant. Inspect recorded examples, evaluation results, and reproducible source code.">
+  <link rel="canonical" href="https://biniyam44.github.io/engineering/">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <title>ML systems and evidence | Biniyam Berga</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../forecasting/forecasting.css">
+  <link rel="stylesheet" href="engineering.css">
+  <script src="engineering.js" defer></script>
+</head>
+<body class="forecast-page engineering-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><nav class="nav-shell container forecast-nav" aria-label="Main navigation">
+    <a class="wordmark" href="../">Biniyam Berga</a>
+    <a class="forecast-back" href="../forecasting/">Forecasting studies</a>
+    <a class="header-cta" href="https://github.com/biniyam44/Data-Science-Portfolio-">View source ↗</a>
+  </nav></header>
+  <main id="main">
+    <section class="forecast-hero container">
+      <div><p class="section-index">AI ENGINEERING / ML SYSTEMS</p><h1>From a forecast<br>to a system<br>you can <em>inspect.</em></h1>
+      <p class="forecast-lead">A model version, an input contract, and a record of what happened next. This project extends my forecasting studies with a prediction service and an assistant that answers from saved evidence.</p>
+      <div class="forecast-hero-links"><a class="button primary" href="#service">Inspect the service ↓</a><a class="text-link" href="#analyst">Try recorded questions ↘</a></div></div>
+      <aside class="project-note"><p class="eyebrow">LOCAL ENGINEERING DEMONSTRATION</p><h2>Separate learning from serving.</h2>
+      <ol class="system-steps"><li><span>01</span> Compare and calibrate offline</li><li><span>02</span> Promote a saved model version</li><li><span>03</span> Predict without fitting again</li><li><span>04</span> Reconcile delayed observations</li></ol>
+      <p class="project-note-foot">This page displays saved local runs. It does not call a public API or an LLM. Source code includes an optional, separately configured model-backed tool planner.</p></aside>
+    </section>
+
+    <p class="container data-status" id="page-status" role="status" aria-live="polite">Loading the recorded engineering results.</p>
+
+    <section class="container explorer-section" id="service" aria-labelledby="service-title">
+      <div class="forecast-section-heading"><div><p class="section-index">01 / ENERGY FORECASTING API</p><h2 id="service-title">A response with<br><em>context.</em></h2></div><p>169 completed hourly readings enter the API. Each forecast includes its horizon, empirical interval, model version, and training cutoff.</p></div>
+      <div class="explorer-panel">
+        <div class="evidence-heading"><span class="endpoint">POST /v1/forecast</span><span class="recorded-label">RECORDED RESPONSE</span></div>
+        <p class="dataset-description">The saved service uses the appliance dataset. Its models are frozen before serving; the original research comparison refits at each rolling origin. These are different experiments.</p>
+        <label class="horizon-control" for="service-horizon">Forecast horizon<select id="service-horizon" disabled><option>Loading</option></select></label>
+        <div class="result-metrics" aria-live="polite"><div><span>Forecast energy</span><strong id="forecast-value">Unavailable</strong><small>kWh in the target hour</small></div><div><span>Nominal 80% interval</span><strong id="forecast-interval">Unavailable</strong><small>Historical calibration, not a guarantee</small></div><div><span>Selected model</span><strong id="forecast-model">Unavailable</strong><small>Lowest validation MAE</small></div></div>
+        <p class="record-details" id="forecast-context"></p>
+        <details class="metadata-details"><summary>Inspect the response and model version</summary><pre id="forecast-json"></pre></details>
+        <div class="download-bar"><span>REPRODUCIBLE EXAMPLE</span><div><a href="data/service-request.json" download>Request JSON ↓</a><a href="data/service-response.json" download>Response JSON ↓</a><a href="https://github.com/biniyam44/Data-Science-Portfolio-/blob/main/docs/deployment.md">Run the API ↗</a></div></div>
+      </div>
+      <div class="engineering-notes"><article><h3>Model lifecycle</h3><p>Validation compares simple baselines with boosted trees. Calibration sets interval widths. Bundles carry file hashes and dependency versions. Promotion and rollback are explicit local operations; the API never accepts uploaded model files.</p></article><article><h3>Bounded access</h3><p>Protected routes require authentication. Request size, history length, and call rate are limited. Docker runs a single non-root process with a read-only model mount. A public deployment still needs managed secrets, TLS, and service-level monitoring.</p></article></div>
+    </section>
+
+    <section class="container engineering-section" id="monitoring" aria-labelledby="monitor-title">
+      <div class="forecast-section-heading"><div><p class="section-index">02 / WHAT HAPPENED AFTERWARD</p><h2 id="monitor-title">Measure the <em>misses.</em></h2></div><p>A historical replay connects each forecast to an observation only after its target hour is complete. Repeated outcomes are idempotent; conflicting outcomes are rejected.</p></div>
+      <div class="explorer-panel"><p class="eyebrow">HISTORICAL REPLAY, NOT LIVE TRAFFIC</p><div id="monitor-summary" class="monitor-summary"></div><p class="metric-explanation">Coverage is measured against a nominal 80% interval. Input-shift statistics are descriptive, not an automatic retraining decision. Missing outcomes are separate from measured errors.</p><details class="metadata-details"><summary>Inspect monitoring and drift records</summary><pre id="monitor-json"></pre></details><div class="download-bar"><span>LOCAL HTTP MEASUREMENT</span><p id="load-summary">Load-test results unavailable.</p><a href="data/load-test.json" download>Load-test record ↓</a></div></div>
+    </section>
+
+    <section class="container engineering-section" id="analyst" aria-labelledby="analyst-title">
+      <div class="forecast-section-heading"><div><p class="section-index">03 / FORECAST RESEARCH ASSISTANT</p><h2 id="analyst-title">An answer with<br><em>receipts.</em></h2></div><p>Restricted tools retrieve experiment rows and methodology. Python calculates and renders the numbers. A model, when enabled, selects a tool; it does not invent the final numerical answer.</p></div>
+      <div class="explorer-panel"><p class="eyebrow">RECORDED DETERMINISTIC EVIDENCE RETRIEVAL</p><label class="question-control" for="analyst-question">Explore a question<select id="analyst-question" disabled><option>Loading questions</option></select></label><div class="answer-panel" aria-live="polite"><p id="analyst-answer"></p></div><p class="record-details" id="analyst-trace"></p><ul class="citation-list" id="analyst-citations"></ul><details class="metadata-details"><summary>Inspect the complete tool result</summary><pre id="analyst-json"></pre></details><p class="metric-explanation" id="analyst-evaluation"></p></div>
+      <div class="engineering-notes"><article><h3>Evidence has limits</h3><p>The assistant can compare saved models, find their largest errors, and explain the documented methodology. It declines live predictions, missing experiment scope, secrets, and unsupported claims.</p></article><article><h3>Offline tests are not an LLM benchmark</h3><p>Fixed questions exercise numerical answers, citations, refusal, and mocked tool-planner responses. Real provider performance, latency, and cost remain unmeasured until a separately authorized API evaluation.</p></article></div>
+    </section>
+
+    <section class="container engineering-section" id="replication" aria-labelledby="replication-title"><div class="forecast-section-heading"><div><p class="section-index">04 / AN INDEPENDENT DATASET</p><h2 id="replication-title">Keep the<br><em>uncomfortable result.</em></h2></div><p>The protocol was locked before downloading a separate whole-household dataset. All six models used shared origins. This is a replication, not a future appliance-data test.</p></div><div class="explorer-panel"><div id="holdout-summary" class="monitor-summary"></div><p class="metric-explanation">The validation-selected model lost to the last-value baseline at one hour. The six-hour model improved. One household and sparse origins do not establish general performance. Missing-hour targets were excluded consistently rather than filled with invented actuals.</p><a class="text-link" href="https://github.com/biniyam44/Data-Science-Portfolio-/blob/main/docs/holdout.md">Read the locked protocol, exclusions, and all results ↗</a></div></section>
+    <noscript><p class="container no-script">JavaScript is needed to explore the recorded examples. All results and commands are available in the source repository.</p></noscript>
+    <section class="forecast-next container"><div><p class="eyebrow">CODE AND OPERATING DECISIONS</p><h2>Run it, then inspect it.</h2><p>Offline training, authenticated prediction, monitoring replay, and restricted research tools are separate, testable steps.</p></div><a class="button primary" href="https://github.com/biniyam44/Data-Science-Portfolio-">Open the project ↗</a></section>
+    <p class="container data-attribution">Appliance data: Luis Candanedo, UCI, CC BY 4.0. Independent household data: Georges Hebrail and Alice Berard, <a href="https://doi.org/10.24432/C58K54">UCI Individual Household Electric Power Consumption</a>, CC BY 4.0. Examples use historical public data, not customer traffic.</p>
+  </main>
+  <footer class="site-footer container"><div class="footer-inner"><a class="wordmark" href="../">Biniyam Berga</a><p>ML engineering · Inspectable evidence</p><a class="back-top" href="#">Back to top ↑</a></div></footer>
+</body>
+</html>

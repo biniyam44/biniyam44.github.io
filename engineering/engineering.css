@@ -1,0 +1,27 @@
+.system-steps { list-style: none; margin: 24px 0 0; padding: 0; }
+.system-steps li { padding: 13px 0; border-top: 1px solid #cdd5c3; font-size: 13px; }
+.system-steps span { display: inline-block; width: 34px; font: 11px var(--mono); color: var(--muted); }
+.engineering-section { padding-top: 72px; }
+.evidence-heading { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
+.endpoint { font: 13px var(--mono); }
+.recorded-label { padding: 5px 10px; background: var(--wash); border-radius: 4px; font: 10px var(--mono); }
+.horizon-control, .question-control { display: flex; flex-direction: column; gap: 9px; margin-top: 24px; font: 11px/1.7 var(--mono); }
+.horizon-control { max-width: 250px; }
+.engineering-page select { padding: 12px; border: 1px solid #bac8af; border-radius: 6px; background: var(--paper); color: var(--ink); font: 14px var(--sans); max-width: 100%; }
+.engineering-page .result-metrics strong { font-size: clamp(21px, 2.8vw, 32px); overflow-wrap: anywhere; }
+.record-details { margin-top: 18px; color: var(--body); font-size: 12px; overflow-wrap: anywhere; }
+.engineering-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 45px; margin-top: 28px; }
+.engineering-notes article { padding-top: 22px; border-top: 1px solid var(--line); }
+.engineering-notes h3 { font: 400 25px var(--serif); }
+.engineering-notes p { margin-top: 12px; font-size: 13px; color: var(--body); }
+.monitor-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-block: 20px; }
+.monitor-summary article { padding-left: 20px; border-left: 2px solid var(--lime-dark); }
+.monitor-summary h3 { font: 400 25px var(--serif); margin-bottom: 12px; }
+.monitor-summary p { font-size: 13px; color: var(--body); }
+.answer-panel { margin-top: 23px; padding: 24px; background: var(--wash); border-radius: 8px; }
+#analyst-answer { white-space: pre-wrap; font-size: 14px; line-height: 1.9; }
+.citation-list { padding-left: 20px; font-size: 12px; overflow-wrap: anywhere; }
+.citation-list li + li { margin-top: 8px; }
+.citation-list a { text-decoration: underline; text-underline-offset: 3px; }
+.engineering-page .download-bar p { font-size: 12px; color: var(--body); max-width: 470px; }
+@media (max-width: 760px) { .monitor-summary, .engineering-notes { grid-template-columns: 1fr; gap: 22px; } .engineering-section { padding-top: 48px; } .answer-panel { padding: 18px; } .engineering-page .forecast-nav { flex-wrap: wrap; padding-block: 18px; gap: 14px; } }

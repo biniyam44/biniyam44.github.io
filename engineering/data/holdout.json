@@ -1,0 +1,36 @@
+{
+  "selected": [
+    {
+      "horizon": 1,
+      "model": "seasonal_naive",
+      "mae": 0.654669565217,
+      "naive_mae": 0.416869565217,
+      "coverage": 0.695652173913
+    },
+    {
+      "horizon": 6,
+      "model": "boosted",
+      "mae": 0.527202405131,
+      "naive_mae": 1.02876956522,
+      "coverage": 0.95652173913
+    },
+    {
+      "horizon": 24,
+      "model": "prophet",
+      "mae": 0.660602075432,
+      "naive_mae": 0.698327536232,
+      "coverage": 0.739130434783
+    }
+  ],
+  "protocol_sha256": "0275658513bbb8ce15d31ea1f89743e589c3c970f4e25fcd627109e5f312e9d7",
+  "input_sha256": "a3359e09ab9672bed4d2ff12c112b6b35398b906f107ab34188996e67e6b0fad",
+  "limitations": [
+    "A different household and whole-household consumption target, not a future holdout of appliance energy.",
+    "Protocol locked locally before downloading and inspecting target measurements; no external preregistration or pretraining exclusion claim.",
+    "Only complete sixty-minute target hours are scored; exclusions may make coverage unrepresentative during data outages.",
+    "Forward-filled historical inputs and training labels are flagged and can bias fits during long outages; evaluation labels are never filled.",
+    "Expanding histories may include past test observations available before later forecast origins.",
+    "Sparse origins, one household and four months do not establish production or cross-season generalization.",
+    "Serial dependence means nominal 80% intervals have no guaranteed coverage."
+  ]
+}
