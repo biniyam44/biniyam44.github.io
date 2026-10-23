@@ -22,6 +22,7 @@ Open `http://127.0.0.1:4173`.
 - `assets/`: favicon and résumé.
 - `forecasting/`: interactive historical price and hourly appliance-energy studies.
 - `forecasting/data/`: checked forecasts, metrics, and reproducibility records exported from the forecasting repository.
+- `engineering/`: recorded energy API, monitoring, research-assistant and independent-replication examples. This is not a live backend.
 
 The site uses plain HTML, CSS, and JavaScript. There are no dependencies or build steps. GitHub Pages publishes the root of the `main` branch.
 
@@ -30,9 +31,12 @@ The site uses plain HTML, CSS, and JavaScript. There are no dependencies or buil
 ```sh
 node --check app.js
 node --check forecasting/forecasting.js
+node --check engineering/engineering.js
 git diff --check
 ```
 
 Before publishing an update, check the mobile menu, work filters, project dialogs, and résumé download.
+
+For the engineering page, test all horizon and question selections, citation links and JSON downloads. Refresh its recorded data with `python scripts/export_engineering.py --destination ../biniyam-berga` from the forecasting repository after its local checks and HTTP benchmark. Do not add API tokens or model-provider keys to this site.
 
 For the forecasting explorer, check both datasets and each forecast horizon. Confirm that energy uses hours and kWh, the model-selection badge follows validation results, and CSV downloads match the selected dataset. Model fitting does not run in the visitor's browser. The recorded results come from [the forecasting source repository](https://github.com/biniyam44/Data-Science-Portfolio-), whose export command checks the source data, evaluation rows, and metrics before copying them here.
