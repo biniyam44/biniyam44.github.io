@@ -90,8 +90,8 @@ const workDetails = {
   multimodal: {
     kicker: 'AGENTS + MULTIMODAL EVALUATION', title: 'Agent and multimodal evaluation',
     lead: 'Reviewing the quality of actions, research, code, images, and other outputs across different AI workflows.',
-    context: 'My Turing work includes computer-using agent development and evaluation, AI agents, RLGym, deep research and search evaluation, image and video labeling, game labeling, and fact checking.',
-    contributions: ['Working on Python code implementation and evaluation.', 'Developing and evaluating AI agents and computer-use workflows.', 'Reviewing research and search outputs for accuracy and evidence.', 'Contributing to multimodal training and evaluation projects.'],
+    context: 'My Turing work includes computer-using agent development and evaluation, AI agents, RLGym, deep research and search evaluation, image and video labeling and annotation, game labeling, and fact checking.',
+    contributions: ['Working on Python code implementation and evaluation.', 'Developing and evaluating AI agents and computer-use workflows.', 'Reviewing research and search outputs for accuracy and evidence.', 'Labeling and annotating video and image data.', 'Contributing to multimodal training and evaluation projects.'],
     relevance: 'Relevant to agent evaluation, multimodal QA, research evaluation, and human-in-the-loop AI development.',
     stack: ['Python', 'Computer-use agents', 'RLGym', 'Multimodal QA', 'Fact checking'],
     note: 'This is a summary of work areas across Turing projects. Client datasets and individual model results remain outside the portfolio.'
