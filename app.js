@@ -96,6 +96,15 @@ const workDetails = {
     stack: ['Python', 'Computer-use agents', 'RLGym', 'Multimodal QA', 'Fact checking'],
     note: 'This is a summary of work areas across Turing projects. Client datasets and individual model results remain outside the portfolio.'
   },
+  redteam: {
+    kicker: 'AI SAFETY + ROBUSTNESS', title: 'AI Red-Teaming & Adversarial Testing',
+    lead: 'Probe model guardrails, trace failures, and document reproducible cases.',
+    context: 'My work includes multi-step prompt attacks, simulated sensitive-data exposure, and reasoning stress tests involving contradictory constraints and chained dependencies.',
+    contributions: ['Designing multi-step prompt attack sequences to test LLM guardrails.', 'Documenting reproducible exploits with proposed mitigations.', 'Simulating sensitive schema and training-data leakage and building detection heuristics.', 'Testing reasoning failures under contradictory constraints and chained dependencies.'],
+    relevance: 'Relevant to AI safety evaluation, model robustness, and evaluation engineering.',
+    stack: ['Adversarial testing', 'Prompt injection testing', 'Leakage detection', 'Failure analysis', 'Mitigation reporting'],
+    note: 'Experience summary based on my project work. Private prompts, client datasets, and exploit artifacts are not published here.'
+  },
   leadership: {
     kicker: 'TECHNICAL LEADERSHIP', title: 'Evaluation team leadership',
     lead: 'Technical quality depends on the people reviewing the work as well as the tools they use.',
