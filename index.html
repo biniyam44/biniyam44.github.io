@@ -44,23 +44,27 @@
       </div>
       <aside class="practice-panel" aria-label="Explore my areas of work">
         <div class="panel-heading"><span>THE WAY I WORK</span><span class="live-dot" aria-hidden="true"></span></div>
-        <div class="focus-switch" role="group" aria-label="Choose an area of work">
-          <button type="button" data-focus="ai" aria-pressed="true">AI systems</button>
-          <button type="button" data-focus="data" aria-pressed="false">Data science</button>
-          <button type="button" data-focus="evaluation" aria-pressed="false">Evaluation</button>
+        <div class="focus-controls">
+          <div class="focus-switch" role="group" aria-label="Choose an area of work" aria-describedby="focus-hint">
+            <button type="button" data-focus="ai" aria-pressed="true" aria-controls="practice-steps focus-content">AI systems</button>
+            <button type="button" data-focus="data" aria-pressed="false" aria-controls="practice-steps focus-content">Data science</button>
+            <button type="button" data-focus="evaluation" aria-pressed="false" aria-controls="practice-steps focus-content">Evaluation</button>
+          </div>
+          <p class="focus-hint" id="focus-hint">Choose an area to see how I work.</p>
         </div>
-        <div class="practice-diagram" aria-hidden="true">
-          <div class="diagram-node" id="node-start"><span>01</span><strong>Define the task</strong></div>
-          <div class="connector"><span>↓</span></div>
-          <div class="diagram-node" id="node-middle"><span>02</span><strong>Build the workflow</strong></div>
-          <div class="connector"><span>↓</span></div>
-          <div class="diagram-node" id="node-end"><span>03</span><strong>Test the behavior</strong><span class="node-mark">↗</span></div>
+        <div class="practice-diagram" id="practice-steps" role="list" aria-label="Workflow steps">
+          <div class="diagram-node" id="node-start" role="listitem"><span aria-hidden="true">01</span><strong>Define the task</strong></div>
+          <div class="connector" aria-hidden="true"><span>↓</span></div>
+          <div class="diagram-node" id="node-middle" role="listitem"><span aria-hidden="true">02</span><strong>Build the workflow</strong></div>
+          <div class="connector" aria-hidden="true"><span>↓</span></div>
+          <div class="diagram-node" id="node-end" role="listitem"><span aria-hidden="true">03</span><strong>Test the behavior</strong></div>
         </div>
-        <div class="focus-content" aria-live="polite" aria-atomic="true">
+        <div class="focus-content" id="focus-content" aria-live="polite" aria-atomic="true">
           <p class="eyebrow" id="focus-caption">ENGINEERING + INVESTIGATION</p>
           <h2 id="focus-title">Can it finish the job?</h2>
           <p id="focus-description">Agent workflows need more than a convincing answer. I work on repository tasks, tool use, and tests that check the result.</p>
           <div class="focus-tags" id="focus-tags"><span class="tag">Python</span><span class="tag">Docker</span><span class="tag">Agent workflows</span></div>
+          <a class="focus-work-link" id="focus-work-link" href="engineering/"><span id="focus-link-label">Explore AI engineering</span> <span aria-hidden="true">↗</span></a>
         </div>
       </aside>
       <div class="hero-footer"><span class="location"><span aria-hidden="true">◎</span> Based in Addis Ababa, Ethiopia</span><a href="#work" class="scroll-note">A closer look at my work <span aria-hidden="true">↓</span></a></div>
@@ -140,6 +144,6 @@
 
   <dialog class="case-dialog" id="case-dialog" aria-labelledby="case-title"><div class="dialog-header"><span>SELECTED WORK / BINIYAM BERGA</span><button class="dialog-close" type="button" id="close-dialog" aria-label="Close work details">×</button></div><div class="dialog-content" id="case-content"></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <noscript><style>.nav-links{display:flex!important;position:static!important;flex-wrap:wrap}.nav-toggle,.focus-switch,.filter-bar,button.card-open,.demo,#copy-email{display:none!important}.nav-shell{flex-wrap:wrap}.method-layout{grid-template-columns:1fr}</style><div class="noscript-note">The main portfolio content is available without JavaScript. Enable JavaScript for work details and interactive examples.</div></noscript>
+  <noscript><style>.nav-links{display:flex!important;position:static!important;flex-wrap:wrap}.nav-toggle,.focus-controls,.filter-bar,button.card-open,.demo,#copy-email{display:none!important}.nav-shell{flex-wrap:wrap}.method-layout{grid-template-columns:1fr}</style><div class="noscript-note">The main portfolio content is available without JavaScript. Enable JavaScript for work details and interactive examples.</div></noscript>
 </body>
 </html>

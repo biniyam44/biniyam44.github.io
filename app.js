@@ -4,17 +4,20 @@ const focusAreas = {
   ai: {
     caption: 'ENGINEERING + INVESTIGATION', title: 'Can it finish the job?',
     description: 'Agent workflows need more than a convincing answer. I work on repository tasks, tool use, and tests that check the result.',
-    nodes: ['Define the task', 'Build the workflow', 'Test the behavior'], tags: ['Python', 'Docker', 'Agent workflows']
+    nodes: ['Define the task', 'Build the workflow', 'Test the behavior'], tags: ['Python', 'Docker', 'Agent workflows'],
+    href: 'engineering/', linkLabel: 'Explore AI engineering'
   },
   data: {
     caption: 'MODELS + BUSINESS CONTEXT', title: 'What does the data tell us?',
     description: 'From SQL exploration to predictive models and dashboards, I work on making operational data useful for decisions.',
-    nodes: ['Understand the data', 'Model the problem', 'Explain the result'], tags: ['SQL', 'Machine learning', 'Power BI']
+    nodes: ['Understand the data', 'Model the problem', 'Explain the result'], tags: ['SQL', 'Machine learning', 'Power BI'],
+    href: 'forecasting/', linkLabel: 'Explore forecasting studies'
   },
   evaluation: {
     caption: 'EVIDENCE + HUMAN JUDGMENT', title: 'What would count as correct?',
     description: 'I design rubrics, investigate failure cases, and calibrate reviewers so that evaluation has a clear, shared standard.',
-    nodes: ['Define the criteria', 'Inspect the evidence', 'Calibrate the judgment'], tags: ['Rubric design', 'RLHF / RLVR', 'Calibration']
+    nodes: ['Define the criteria', 'Inspect the evidence', 'Calibrate the judgment'], tags: ['Rubric design', 'RLHF / RLVR', 'Calibration'],
+    href: '#approach', linkLabel: 'Try the evaluation example'
   }
 };
 
@@ -25,6 +28,8 @@ document.querySelectorAll('[data-focus]').forEach(button => {
     document.getElementById('focus-caption').textContent = area.caption;
     document.getElementById('focus-title').textContent = area.title;
     document.getElementById('focus-description').textContent = area.description;
+    document.getElementById('focus-work-link').setAttribute('href', area.href);
+    document.getElementById('focus-link-label').textContent = area.linkLabel;
     ['node-start', 'node-middle', 'node-end'].forEach((id, index) => {
       document.querySelector(`#${id} strong`).textContent = area.nodes[index];
     });
