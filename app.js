@@ -54,10 +54,10 @@ const workDetails = {
   agents: {
     kicker: 'AI ENGINEERING + EVALUATION', title: 'Long-horizon agent evaluation',
     lead: 'Tasks that ask an agent to investigate, implement, and verify, not just produce an answer.',
-    context: 'My work across Pareto AI, Afterquery, and Turing includes Terminal Bench and Long Horizon Terminal Bench projects. These bring together repository work, tool use, task design, and evaluation.',
-    contributions: ['Developing engineering tasks and the instructions that define their expected behavior.', 'Working on verification, rubric design, and calibration.', 'Investigating whether an agent’s implementation satisfies the task and whether the evaluation catches incomplete work.'],
+    context: 'My work across Pareto AI, AfterQuery, and Turing includes Terminal Bench and Long Horizon Terminal Bench projects. At AfterQuery, I also work on MLEBench and repository-based coding tasks.',
+    contributions: ['Developing engineering tasks and the instructions that define their expected behavior.', 'Writing reference solutions, behavioral tests, and regression tests in reproducible Docker environments.', 'Working on verification, rubric design, and calibration.', 'Investigating whether an agent’s implementation satisfies the task and whether the evaluation catches incomplete work.'],
     relevance: 'Relevant to agent engineering, evaluation infrastructure, and roles where completion must be demonstrated through code or system behavior.',
-    stack: ['Python', 'Docker', 'Terminal Bench', 'Long Horizon Terminal Bench', 'Task design', 'Verification'],
+    stack: ['Python', 'SQL', 'Ruby', 'C++', 'Docker', 'GitHub', 'Terminal Bench', 'Long Horizon Terminal Bench', 'MLEBench', 'Test harnesses', 'Regression testing', 'Verification'],
     note: 'Experience summary across multiple projects. No private task artifacts or client results are included.'
   },
   quality: {
